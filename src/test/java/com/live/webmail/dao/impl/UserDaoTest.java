@@ -3,6 +3,7 @@ package com.live.webmail.dao.impl;
 import com.live.webmail.base.BaseTestCase;
 import com.live.webmail.dao.UserDao;
 import com.live.webmail.model.User;
+import com.live.webmail.service.UserService;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -15,10 +16,10 @@ import java.util.List;
  * @Email liuyuhui007@gmail.com
  */
 public class UserDaoTest extends BaseTestCase {
-    private UserDao userDao = null;
+    private UserService userService = null;
 
     public UserDaoTest() {
-        userDao = (UserDao) getApplicationContext().getBean("userDao");
+        userService = (UserService) getApplicationContext().getBean("userService");
     }
 
     @Test
@@ -28,7 +29,7 @@ public class UserDaoTest extends BaseTestCase {
 
     @Test
     public void testQueryAll() {
-        List<User> users = userDao.queryAll();
+        List<User> users = userService.queryAll();
         System.out.println("users count:" + users.size());
     }
 }
