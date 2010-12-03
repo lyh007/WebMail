@@ -33,6 +33,7 @@ public class UserAction extends ActionSupport {
 
     //用户列表
     public String list() {
+        userList = userService.queryAll();
         return SUCCESS;
     }
 

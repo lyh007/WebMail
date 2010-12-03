@@ -4,6 +4,7 @@ import com.live.webmail.dao.UserDao;
 import com.live.webmail.model.User;
 import com.live.webmail.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Email liuyuhui007@gmail.com
  */
 @Service("userService")
+//@Repository("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
     public UserDao userDao;
