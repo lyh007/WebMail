@@ -1,6 +1,6 @@
 package com.live.webmail.model;
 
-import java.io.Serializable;
+import com.live.webmail.base.DomainObject;
 
 /**
  * Created by IntelliJ IDEA.
@@ -8,19 +8,10 @@ import java.io.Serializable;
  * Date: 10-11-29
  * Time: 上午11:13
  */
-public class User implements Serializable {
-    private int id;
+public class User extends DomainObject {
     private String name;
 
     public User() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

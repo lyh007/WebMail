@@ -1,6 +1,5 @@
 package com.live.webmail.action.user;
 
-import com.live.webmail.dao.UserDao;
 import com.live.webmail.model.User;
 import com.live.webmail.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -33,7 +32,7 @@ public class UserAction extends ActionSupport {
 
     //用户列表
     public String list() {
-        userList = userService.queryAll();
+//        userList = userService.queryAll();
         return SUCCESS;
     }
 
@@ -44,4 +43,5 @@ public class UserAction extends ActionSupport {
     public void setUserList(List<User> userList) {
         this.userList = userList;
     }
+
 }

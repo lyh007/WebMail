@@ -3,8 +3,9 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.live.webmail.model.User" alias="User"/>
+        <typeAlias type="com.live.webmail.base.QueryParams" alias="QueryParams"/>
     </typeAliases>
     <mappers>
-        <mapper resource="com/live/webmail/model/User.xml"/>
+        <mapper resource="conf/mybatis/User.xml"/>
     </mappers>
 </configuration>

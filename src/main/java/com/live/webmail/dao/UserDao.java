@@ -1,5 +1,6 @@
 package com.live.webmail.dao;
 
+import com.live.webmail.base.BaseInterface;
 import com.live.webmail.model.User;
 
 import java.util.List;
@@ -11,10 +12,5 @@ import java.util.List;
  * Time: 下午1:31
  * Email:liuyuhui007@gmail.com
  */
-public interface UserDao {
-    /**
-     * 查询所有的用户
-     * @return
-     */
-    public List<User> queryAll();
+public interface UserDao extends BaseInterface<User> {
 }

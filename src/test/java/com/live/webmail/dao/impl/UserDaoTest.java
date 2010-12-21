@@ -1,12 +1,11 @@
 package com.live.webmail.dao.impl;
 
 import com.live.webmail.base.BaseTestCase;
-import com.live.webmail.dao.UserDao;
+import com.live.webmail.base.Page;
+import com.live.webmail.base.QueryParams;
 import com.live.webmail.model.User;
 import com.live.webmail.service.UserService;
-import com.opensymphony.xwork2.interceptor.annotations.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 
 import java.util.List;
 
@@ -23,13 +22,36 @@ public class UserDaoTest extends BaseTestCase {
     }
 
     @Test
-    public void testAddUser() {
-        System.out.println("hello world!");
+    public void testGetUserById() {
+        User user = userService.getById(1);
+        System.out.println(user.getName());
     }
 
     @Test
-    public void testQueryAll() {
-        List<User> users = userService.queryAll();
-        System.out.println("users count:" + users.size());
+    public void testSaveUser() {
+        User user = new User();
+        user.setName("坚持到底");
+        userService.save(user);
+    }
+
+    @Test
+    public void testUpdate() {
+        User user = userService.getById(1);
+        user.setName("modify userName");
+        userService.update(user);
+    }
+
+    @Test
+    public void testDelete() {
+        userService.delete(4);
+    }
+
+    @Test
+    public void testQQ() {
+        QueryParams<User> queryParams = new QueryParams<User>();
+        Page paging = new Page(1, 2);
+        queryParams.setPaging(paging);
+        List<User> userList = userService.queryByPage(queryParams);
+        System.out.println("user size:" + userList.size());
     }
 }
