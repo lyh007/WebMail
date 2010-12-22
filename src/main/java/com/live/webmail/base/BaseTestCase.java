@@ -1,13 +1,7 @@
 package com.live.webmail.base;
 
-import junit.framework.TestCase;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.io.Reader;
 
 /**
  * Created by IntelliJ IDEA.

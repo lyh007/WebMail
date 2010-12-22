@@ -59,7 +59,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param entity    实体类
      * @return 数据库标识
      */
-    protected DomainObject save(String statement, DomainObject entity) {
+    public DomainObject save(String statement, DomainObject entity) {
         int entityId = sqlSessionFactory.openSession().insert(statement, entity);
         if (entityId > 0) {
             entity.setId(entityId);
@@ -72,7 +72,7 @@ public class BaseDaoImpl<T extends DomainObject> {
 
     }
 
-    protected void update(String statement, Object params) {
+    public void update(String statement, Object params) {
         sqlSessionFactory.openSession().update(statement, params);
     }
 
@@ -80,7 +80,7 @@ public class BaseDaoImpl<T extends DomainObject> {
         this.update(getStatement(), entity);
     }
 
-    protected void delete(String statement, Object params) {
+    public void delete(String statement, Object params) {
         sqlSessionFactory.openSession().delete(statement, params);
     }
 
@@ -98,7 +98,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param statement
      * @param params
      */
-    protected void deleteByIds(String statement, Object params) {
+    public void deleteByIds(String statement, Object params) {
         sqlSessionFactory.openSession().delete(statement, params);
     }
 
@@ -109,7 +109,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    protected T getEntity(String statement, Object params) {
+    public T getEntity(String statement, Object params) {
         return (T) sqlSessionFactory.openSession().selectOne(statement, params);
     }
 
@@ -124,7 +124,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    protected List<T> query(String statement, QueryParams params) {
+    public List<T> query(String statement, QueryParams params) {
         if (params != null && params.getPaging() != null) {
             int records = queryCount(statement, params);
             //如果查询出符合条件的记录数为0，那么就直接返回一个空的List，因为后面的已经没有执行的必要
@@ -143,7 +143,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    protected List<T> query(String statement, Object params) {
+    public List<T> query(String statement, Object params) {
         return (List<T>) sqlSessionFactory.openSession().selectList(statement, params);
     }
 
@@ -154,7 +154,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    protected boolean isExistEntity(String statement, Object params) {
+    public boolean isExistEntity(String statement, Object params) {
         return (Integer) sqlSessionFactory.openSession().selectOne(statement, params) > 0;
     }
 
@@ -165,7 +165,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    private int queryCount(String statement, QueryParams<?> params) {
+    public int queryCount(String statement, QueryParams<?> params) {
         if (params == null)
             return (Integer) sqlSessionFactory.openSession().selectOne(statement + COUNT_STATEMENT_SUFFIX);
         return (Integer) sqlSessionFactory.openSession().selectOne(statement + COUNT_STATEMENT_SUFFIX, params);
@@ -186,7 +186,7 @@ public class BaseDaoImpl<T extends DomainObject> {
      * @param params
      * @return
      */
-    protected int uniqueIntResult(String statement, Object params) {
+    public int uniqueIntResult(String statement, Object params) {
         if (params == null)
             return (Integer) sqlSessionFactory.openSession().selectOne(statement);
         else

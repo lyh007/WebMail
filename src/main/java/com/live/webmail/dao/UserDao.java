@@ -3,8 +3,6 @@ package com.live.webmail.dao;
 import com.live.webmail.base.BaseInterface;
 import com.live.webmail.model.User;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
  * User: kevin

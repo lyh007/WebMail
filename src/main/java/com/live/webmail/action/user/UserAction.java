@@ -26,7 +26,7 @@ import java.util.List;
         @Result(name = "success", location = "/WEB-INF/jsp/user/list_user.jsp")
 )
 public class UserAction extends ActionSupport {
-    public List<User> userList = new ArrayList<User>();
+    private List<User> userList = new ArrayList<User>();
     @Autowired
     private UserService userService;
 

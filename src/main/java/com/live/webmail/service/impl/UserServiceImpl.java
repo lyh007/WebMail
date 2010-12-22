@@ -17,37 +17,71 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
     @Autowired
-    public UserDao userDao;
+    private UserDao userDao;
 
-    public User getById(int id) {
-        return userDao.getById(id);
-    }
-
-    public void save(User entity) {
+    /**
+     * 保存用户信息
+     *
+     * @param entity 用户信息
+     */
+    public final void save(User entity) {
         userDao.save(entity);
     }
 
-    public void update(User entity) {
+    /**
+     * 更新用户信息
+     *
+     * @param entity 用户信息
+     */
+    public final void update(User entity) {
         userDao.update(entity);
     }
 
-    public void delete(Integer id) {
+    /**
+     * 删除用户
+     *
+     * @param id 用户标识
+     */
+    public final void delete(Integer id) {
         userDao.delete(id);
     }
 
-    public void deleteByIds(String ids) {
+    /**
+     * 删除多个用户
+     *
+     * @param ids 用户标识字符串
+     */
+    public final void deleteByIds(String ids) {
         userDao.deleteByIds(ids);
     }
 
-    public User getById(Integer id) {
+    /**
+     * 获取用户信息
+     *
+     * @param id 用户标识
+     * @return 用户信息
+     */
+    public final User getById(Integer id) {
         return userDao.getById(id);
     }
 
-    public List<User> queryByPage(QueryParams<?> queryParams) {
+    /**
+     * 分页查询用户列表
+     *
+     * @param queryParams 查询条件
+     * @return 用户列表
+     */
+    public final List<User> queryByPage(QueryParams<?> queryParams) {
         return userDao.queryByPage(queryParams);
     }
 
-    public int getTotalCount(Object params) {
+    /**
+     * 分页查询用户列表总数
+     *
+     * @param params 查询条件
+     * @return 用户数
+     */
+    public final int getTotalCount(Object params) {
         return userDao.getTotalCount(params);
     }
 }
