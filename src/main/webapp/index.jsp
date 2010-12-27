@@ -5,5 +5,6 @@
 <body>
 <h2>Hello World!</h2>
 <a href="<%=request.getContextPath()%>/user/user!list.action">查看用户</a>
+<a href="<%=request.getContextPath()%>/index.action">主页</a>
 </body>
 </html>
