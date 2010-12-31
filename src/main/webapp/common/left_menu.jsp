@@ -8,14 +8,16 @@
 <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
 <script type="text/javascript" src="/js/jquery/jquery-1.4.4.js"></script>
 <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
-<div id="aa" class="easyui-accordion" style="width:143px;height:695px;">
-    <div title="用户管理" iconCls="icon-ok" style="overflow:auto;padding:10px;" selected="true" >
-      添加用户
-    </div>
-    <div title="系统设置" iconCls="icon-reload" style="padding:10px;">
-        content2
-    </div>
-    <div title="邮件管理">
-        content3
+<div region="west" split="true" title="West" style="width:150px;">
+    <div id="aa" class="easyui-accordion" style="width:143px;height:695px;">
+        <div title="用户管理" iconCls="icon-ok" style="overflow:auto;padding:10px;" selected="true">
+            <a href="user/user!preAdd.action">用户管理</a>
+        </div>
+        <div title="系统设置" iconCls="icon-reload" style="padding:10px;">
+            content2
+        </div>
+        <div title="邮件管理">
+            content3
+        </div>
     </div>
 </div>

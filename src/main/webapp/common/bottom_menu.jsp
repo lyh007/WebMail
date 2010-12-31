@@ -7,4 +7,6 @@
 <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
 <script type="text/javascript" src="/js/jquery/jquery-1.4.4.js"></script>
 <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
-<center>bottom menu</center>
+<div region="south" border="false" style="height:50px;padding:10px;">
+    <center>bottom menu</center>
+</div>

@@ -35,6 +35,15 @@ public class DateUtil {
         Date thisYearEndTime = getThisYearEndTime();
         System.out.println("最近一年开始时间:" + sdf.format(thisYearStartTime));
         System.out.println("最近一年结束时间:" + sdf.format(thisYearEndTime));
+        //
+        Calendar now = Calendar.getInstance();
+        Calendar dutyUnitCal = dutyUnitDate(now, "09:30");
+        System.out.println("字符串时间转换:" + sdf.format(dutyUnitCal.getTime()));
+        Calendar last = Calendar.getInstance();
+        System.out.println("last时间转换:" + sdf.format(last.getTime()));
+        System.out.println(now.after(last));
+
+
     }
 
     /**
@@ -156,6 +165,36 @@ public class DateUtil {
         cal.set(Calendar.HOUR_OF_DAY, 23);
         cal.set(Calendar.MINUTE, 59);
         cal.set(Calendar.SECOND, 59);
+        return cal;
+    }
+
+    /**
+     * @param cal     日历
+     * @param timeStr 时间字符串，可以是9:00或09:00
+     * @return 设置日历的时分秒
+     */
+    public static Calendar dutyUnitDate(Calendar cal, String timeStr) {
+        //时间字符串不合法近回输入日期
+        if (timeStr == null && timeStr.length() > 5) {
+            return cal;
+        }
+        String hourStr = timeStr.split(":")[0];
+        String minuteStr = timeStr.split(":")[1];
+        int hour, minute;
+        //转换小时
+        if (hourStr.startsWith("0")) {
+            hour = Integer.valueOf(hourStr.substring(1));
+        } else {
+            hour = Integer.valueOf(hourStr);
+        }
+        if (minuteStr.startsWith("0")) {
+            minute = Integer.valueOf(hourStr.substring(1));
+        } else {
+            minute = Integer.valueOf(minuteStr);
+        }
+        cal.set(Calendar.HOUR_OF_DAY, hour);
+        cal.set(Calendar.MINUTE, minute);
+        cal.set(Calendar.SECOND, 0);
         return cal;
     }
 }

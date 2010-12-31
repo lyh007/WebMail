@@ -27,7 +27,9 @@ import java.util.Map;
 @Scope("prototype")
 @ParentPackage(value = "struts-default")
 @Results(
-        @Result(name = "success", location = "/WEB-INF/jsp/user/list_user.jsp")
+        {@Result(name = "success", location = "/WEB-INF/jsp/user/list_user.jsp"),
+         @Result(name = "add", location = "/WEB-INF/jsp/user/add_user.jsp")
+        }
 )
 public class UserAction extends BaseAction {
     private List<User> userList = new ArrayList<User>();
@@ -58,6 +60,10 @@ public class UserAction extends BaseAction {
         userList = userService.queryByPage(queryParams);
         records = queryParams.getPaging().getRecords();
         return SUCCESS;
+    }
+
+    public String preAdd() {
+        return "add";
     }
 
     public List<User> getUserList() {

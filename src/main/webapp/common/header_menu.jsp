@@ -7,4 +7,6 @@
 <link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
 <script type="text/javascript" src="/js/jquery/jquery-1.4.4.js"></script>
 <script type="text/javascript" src="/js/easyui/jquery.easyui.min.js"></script>
-<center>header menu</center>
+<div region="north" border="false" style="height:60px;">
+    <center>header menu</center>
+</div>
